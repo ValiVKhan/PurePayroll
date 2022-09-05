@@ -2,8 +2,8 @@ import dwollafull
 import dwollav2
 from time import sleep
 client = dwollav2.Client(
-  key = 'A8PrXAX1kFM0hHktY3l8FYWPX8KZQMiB7zBgiyXeC09AO082EM',
-  secret = 'E1cyNdJsjKm0IIv7MIwwAQchpTqtP7dP3YoTPY6bKichigm7EG',
+  key = '',
+  secret = '',
   environment = 'sandbox', # defaults to 'production'
 )
 application_token = client.Auth.client()
