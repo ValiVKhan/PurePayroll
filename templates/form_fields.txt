@@ -1,0 +1,22 @@
+EE = Employee
+First Name
+Last Name
+Address 1
+Address 2
+City
+State
+Zip
+email
+cell
+dob
+ssn
+status (W4 Step 1 (c) : MFS, MFJ, HH)
+
+
+
+prate  | hourly rate or monthly rate
+pfreq | how often paid per Table 3 of IRS 15-T 2021, it can be 2, 4, 12, 24, 26, 52, 260 
+pperiod | time period covered mm/dd/yyyy to mm/dd/yyyy
+pdate | date of pay dd/mm/yyyy
+pgross | gross amount = prate * hours
+pnet | pnet = pgross - deductions, deductions= Fed Tax Withheld + FICA + Medicare

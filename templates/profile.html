@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+PROFILE PAGE<br>
+<strong>Signed in: </strong>{{ current_user.email }}<br>
+<strong>Message: </strong>{{ message }}
+<br>
+<div class="p-3 mb-2 bg-danger text-white">
+
+    <form class="form-signin" method="POST" action="/profileupdate">
+      {{ form.csrf_token }}
+      <h2 class="form-signin-heading">Update Profile</h2>
+      {{ form.hidden_tag() }}
+      {{ wtf.form_field(form.email, value=current_user.email) }}
+      {{ wtf.form_field(form.fname, value=current_user.fname) }}
+      {{ wtf.form_field(form.lname, value=current_user.lname) }}
+      {{ wtf.form_field(form.phone, value=current_user.phone) }}
+      {{ wtf.form_field(form.password) }}
+      <button class="btn btn-primary btn-sm" type="submit">Update Profile</button>
+    </form>
+</div>
+{% endblock %}

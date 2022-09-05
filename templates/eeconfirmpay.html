@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <h1>Choose payment account</h1><br>
+    
+  <form class="form-signin" method="POST" action="/vlink">
+        <table>
+      {% for key, value in bankaccounts.items() %}
+        <tr>
+          <th> <input type="radio" name=bankaccount value={{ key }}></th>
+          <td> {{ value }}</td>
+          <input type='text' name=vusername value={{vusername}} hidden>
+          <input type='text' name=vpasswd value={{vpasswd}} hidden>
+        </tr>
+      {% endfor %}
+
+    </table>  
+    <button class="btn btn-sm btn-primary btn-block" type="submit">Submit</button> 
+  </form>     
+
+{% endblock %}

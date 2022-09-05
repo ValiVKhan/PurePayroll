@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    EE Main
+{% endblock %}
+
+{% block content %}
+<strong>Signed in: </strong>{{ name }}<br>
+{{ message }}
+<h1><a href="editcomp?company={{company.cname}}">{{company.cname}} {{company.cid}}</a> </h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th><a href="addemp?company={{company.name}}">Employee</a></th>
+               
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td><a href="editemp?fname={{employee.fname}}&lname={{employee.lname}}&eid={{employee.eid}}&cid={{company.cid}}">{{employee.fname}} {{employee.lname}} {{employee.eid}}</a></td>
+               
+
+            </tr>
+            {% endfor %}
+            <tr>
+        </tbody>
+    </table>
+
+{% endblock %}

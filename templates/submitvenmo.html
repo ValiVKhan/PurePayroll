@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <h1>Final Step to Submit to Venmo from {{ account }} </h1><br>
+    {{vusername}}<br>
+    {{vpasswd}}<br>
+  <form class="form-signin" method="POST" action="/submitvenmo">
+    <table class="table table-striped">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">Account</a></th>
+          <th scope="col">Payee Venmo</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Note Acct</th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr> 
+        <td> <input type="text" name=account value={{ account }} hidden>
+          <input type="text" name=vusername value={{ vusername }} hidden>
+          <input type="text" name=vpasswd value={{ vpasswd }} hidden>
+        </td>
+        <td> <input type="text" name=venmoacct  placeholder='@venmoacct'></td>
+        <td> <input type="text" name=amount  placeholder='$x.xx'></td>
+        <td> <input type="text" name=note  placeholder='note'></td>
+      </tr>
+    </tbody>
+    </table>      
+
+
+    <button class="btn btn-sm btn-primary btn-block" type="submit">Submit</button> 
+  </form>     
+
+{% endblock %}

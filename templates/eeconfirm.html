@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h3> This is the start of my child template</h3>
+    <br>
+        Hello World - confirm the eeinput form fields here
+    </br>
+    <form action=eeconfirmpay method="POST">
+    
+        You are paying: {{vacct}}<br>
+        Amount: {{vamount}}<br>
+        Note: {{vnote}}<br>
+
+        <input type="text" name=vacct value="{{vacct}}">
+        <input type="text" name=vamount value={{vamount}}>
+        <input type="text" name=vnote value="{{vnote}}">
+        <br>
+        This is the username and password of the payer<br>
+        <input type="text" name=venusername value={{venusername}}>
+        <input type="text" name=venpassword value={{venpassword}}>
+        
+        
+
+
+
+
+        <button type="submit" class="btn btn-primary">Pay Now</button>
+
+
+  <h3> This is the end of my child template</h3>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio of Companys - addcompany.html
+{% endblock %}
+
+{% block content %}
+
+<body>
+
+<strong>Signed in: </strong>{{ name }}<br>
+{{ message }}
+
+Please add company information below:
+<br>
+New WTForm Here:
+<div class="container">
+    <form class="form-signin" action="/addcompany2" method="POST">
+        {{ form.csrf_token }}
+        <h2 class="form-signin-heading">Company Info.</h2>
+        <div class="p-3 mb-2 bg-primary text-white">    
+            {{ wtf.form_field(form.cname) }}
+            {{ wtf.form_field(form.fein) }}
+        </div>
+        <div class="p-3 mb-2 bg-info text-white">
+            {{ wtf.form_field(form.cfirstname) }}
+            {{ wtf.form_field(form.clastname) }}
+            {{ wtf.form_field(form.cemail) }}
+            {{ wtf.form_field(form.phone) }}
+            {{ wtf.form_field(form.cipaddress) }}
+            {{ wtf.form_field(form.ctype) }}
+            {{ wtf.form_field(form.cdob) }}
+            {{ wtf.form_field(form.cssn) }}
+            {{ wtf.form_field(form.addr1) }}
+            {{ wtf.form_field(form.addr2) }}
+            {{ wtf.form_field(form.city) }}
+            {{ wtf.form_field(form.state) }}
+            {{ wtf.form_field(form.zcode) }}
+        </div>
+        <div class="p-3 mb-2 bg-success text-dark">
+            {{ wtf.form_field(form.url) }}
+            {{ wtf.form_field(form.contactname) }}
+            {{ wtf.form_field(form.cphone) }}
+        </div>
+        <div class="p-3 mb-2 bg-danger text-white">
+            {{ wtf.form_field(form.cbusclass) }}
+            {{ wtf.form_field(form.cbustype) }}
+            {{ wtf.form_field(form.cbankrout) }}
+            {{ wtf.form_field(form.cbankacct) }}
+            {{ wtf.form_field(form.cdwacctype) }}
+            {{ wtf.form_field(form.cbankacctnm) }}
+        </div>
+        <button class="btn btn-primary btn-sm" type="submit">Setup Company</button>
+        </form> 
+    </div>
+</body>
+{% endblock %}

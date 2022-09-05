@@ -1,0 +1,5 @@
+To deploy code to Heroku, you first need to just update GitHub.
+
+To updated GitHub go to source control icon and make comment in Message area then click on check mark to commit.
+
+Once changes are committed (the check mark you checked), then go to '...' and Push. This will push to GitHub and then subsequently publish on Heroku.

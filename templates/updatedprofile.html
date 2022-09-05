@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<strong>Signed in: </strong>{{ current_user.email }}<br>
+<strong>Message: </strong>{{ message }}
+<br>
+<div class="container">
+<strong>Profile Updated</strong><br>
+<br>
+Name: {{ user.fname }} {{ user.lname }}<br>
+Email: {{ user.email }}<br>
+Phone: {{ user.phone }}<br>
+Address: {{ user.addr1 }}
+</div>
+{% endblock %}

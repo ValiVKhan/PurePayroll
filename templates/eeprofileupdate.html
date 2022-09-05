@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+      Updated Employee Profile
+{% endblock %}
+
+{% block content %}
+
+{{company.cname}}<br>
+{{ company.cid }}<br>
+Name: {{ employee.fname }} {{ employee.lname}}<br>
+Addres: <br>
+{{ employee.addr1 }}<br>
+{{ employee.addr2 }}<br>
+{{ employee.city }}, {{ employee.state }} {{ employee.zip }}<br>
+Email: {{ employee.email }}<br>
+Tel: {{ employee.tel }}<br>
+SSN: {{ employee.ssn }}<br>
+DOB: {{ employee.dob }}<br>
+Filings Status: {{ employee.status}}<br>
+W4 2c: {{ employee.w4_step2c_jobs }}<br>
+W4 3: {{ employee.w4_step3 }}<br>
+W4 4a: {{ employee.w4_step4a }}<br>
+W4 4b: {{ employee.w4_step4b }}<br>
+W4 4c: {{ employee.w4_step4c }}<br>
+
+Edit: <a href="editemp?fname={{employee.fname}}&lname={{employee.lname}}&eid={{employee.eid}}&cid={{company.cid}}">{{employee.fname}} {{employee.lname}} {{employee.eid}}</a>
+
+{% endblock %}

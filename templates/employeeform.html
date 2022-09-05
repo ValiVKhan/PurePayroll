@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block title %}
+      Add Employee - employeeform.html
+{% endblock %}
+
+{% block content %}
+  <body>
+ 
+      Company name: {{ company.cname}}<br>
+      cid={{company.cid}}<br><br>
+  </body>
+  <div class="container">
+    <form class="form-signin" method="POST" action="/addemployee">
+      {{ form.csrf_token }}
+      <h2 class="form-signin-heading">Employee Info.</h2>
+      <strong>Step 1 - Hiring Info.</strong><br>
+      <!-- the following is a quick way to do do the form -->
+      <!-- {{ wtf.quick_form(form) }} -->
+       
+      <!-- This is the way you pass the HiddenField -->
+      {{ form.cid(value=company.cid) }}
+      <!-- {{ form.hidden_tag  () }} -->
+      <div class="p-3 mb-2 bg-danger text-white">
+      {{ wtf.form_field(form.hiringdate) }}
+      {{ wtf.form_field(form.ptype) }}
+      {{ wtf.form_field(form.prate) }}
+      {{ wtf.form_field(form.pfreq) }}
+      </div>
+      <strong>Step 2 - Personal Info.</strong><br>
+      <div class="p-3 mb-2 bg-info text-white">
+      {{ wtf.form_field(form.fname) }}
+      {{ wtf.form_field(form.lname) }}
+      {{ wtf.form_field(form.addr1) }}
+      {{ wtf.form_field(form.addr2) }}
+      {{ wtf.form_field(form.city) }}
+      {{ wtf.form_field(form.state) }}
+      {{ wtf.form_field(form.zcode) }}
+      {{ wtf.form_field(form.ssn) }}
+      {{ wtf.form_field(form.dob) }}
+      {{ wtf.form_field(form.email) }}
+      {{ wtf.form_field(form.phone) }}
+      </div>
+      <strong>Step 3 - Payment Method</strong><br>
+      <div class="p-3 mb-2 bg-success text-white">
+      {{ wtf.form_field(form.paymethod) }}
+      {{ wtf.form_field(form.bankacct) }}
+      {{ wtf.form_field(form.bankrouting) }}
+      {{ wtf.form_field(form.bankacctnm) }}
+      {{ wtf.form_field(form.bankacctype) }}
+      {{ wtf.form_field(form.eedwollaid) }}
+      {{ wtf.form_field(form.eedwollafid) }}
+      
+      </div>
+      <strong>Step 4 - W4 & Tax Info.</strong><br>
+      <div class="p-3 mb-2 bg-light text-dark">
+      <strong>W4 Step 1</strong> (c)<br>
+      {{ wtf.form_field(form.filing_status) }}
+      <strong>W4 Step 2</strong> Multiple Jobs or Spouse works (c) <br>If there are only two jobs total, you may check this box. Do the same on Form W-4 for the other job. This option is accurate for jobs with similar pay; otherwise, more tax than necessary may be withheld . . . . . ▶  {{ wtf.form_field(form.w4_step2c_jobs) }}<br>
+      <strong>W4 Step 3</strong> Claim Dependents<br>
+      If your total income will be $200,000 or less ($400,000 or less if married filing jointly):<br>
+          Multiply the number of qualifying children under age 17 by $2,000 ▶ $_____<br>
+          Multiply the number of other dependents by $500 . . . . ▶ ______<br>
+      Add the amounts above and enter the total here.....
+      {{ wtf.form_field(form.w4_step3) }}<br>
+      <strong>W4 Step 4</strong> (options): Other Adjustments<br>
+      {{ wtf.form_field(form.w4_step4a) }}
+      {{ wtf.form_field(form.w4_step4b) }}
+      {{ wtf.form_field(form.w4_step4c) }}
+    </div>
+
+      <button class="btn btn-primary btn-sm" type="submit">Add Profile</button>
+    
+    </form> 
+    </div>
+{% endblock %}

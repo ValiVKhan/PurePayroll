@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}
+      Dwolla Customer creation dwcustcrt.html
+{% endblock %}
+
+{% block content %}
+  
+  <form action="/dwcustsetup", method="POST">
+    {{ form.csrf_token }}
+    {{ wtf.form_field(form.dfname)}}
+    {{ wtf.form_field(form.dlname)}}
+    {{ wtf.form_field(form.demail)}}
+    {{ wtf.form_field(form.dbnkacct)}}
+    {{ wtf.form_field(form.dbnkrout)}}
+    {{ wtf.form_field(form.dacctype)}}
+    {{ wtf.form_field(form.dacctnm)}}
+    <button class="btn btn-primary btn-sm" type="submit">Create Dwolla Acct</button>
+
+
+
+
+  </form>  
+
+
+      
+{% endblock %}

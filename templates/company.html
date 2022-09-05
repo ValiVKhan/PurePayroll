@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h3> This is the start of my child template</h3>
+  <br>
+
+  {% block title %}
+      Add Company
+  {% endblock %}
+  
+  {% block main %}
+  <body>
+      <P>Lets get started, please enter your company name, EIN and details.</P>
+  </body>
+      <form action="/addcompany2" method="POST">
+          <div class="form-group">
+              <input autocomplete="off" class="form-control" placeholder="Company" name="cname" type="text" size= "30">
+              <input autocomplete="off" class="form-control" placeholder="EIN (required)" name="fein" type="number"><br>
+  
+              <input autocomplete="off" class="form-control" placeholder="address, city, st, zip" name="address" type="text" size= "60">
+              <input autocomplete="off" class="form-control" placeholder="phone" name="phone" type="text" size= "13"><br>
+              <p>Contact person details:</p><input autocomplete="off" class="form-control" placeholder="contact name (required)" name="contact_name" type="text" size= "30">
+              <input autocomplete="off" class="form-control" placeholder="contact phone" name="contact_phone" type="text">
+              <input autocomplete="off" class="form-control" placeholder="contact email (required)" name="contact_email" type="text" size="25">
+          </div>
+          <button class="btn btn-primary" type="submit">Add Company</button>
+      </form>
+  {% endblock %}
+  <h3> This is the end of my child template</h3>
+{% endblock %}

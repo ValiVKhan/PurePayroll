@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+    Run Payroll runpaywiz.html
+{% endblock %}
+
+{% block content %}
+<h1>You are about to run payroll on: {{ company.cname }} </h1><br>
+<h2> Step 1 - Enter Amount and Pay Period</h2>
+<h2 style="color:lightblue;"> Step 2 - Calculate deductions & Net Pay</h2>
+<h2 style="color:lightblue;"> Step 3 - Process Payments</h2>
+<strong>Signed in: </strong>{{ name }}<br>
+<strong>Company: </strong>{{ company.cname }}<br>
+
+<strong>ID: </strong> {{ company.cid }}
+{{ message }}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th><a href="addemp?company={{company.name}}">Employee</a></th>
+                <th>Gross Amount</th>
+                <th>Pay Period</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td><a href="editemp?fname={{employee.fname}}&lname={{employee.lname}}&eid={{employee.eid}}&cid={{company.cid}}">{{employee.fname}} {{employee.lname}} {{employee.eid}}</a></td>
+                <td>Amount</td>
+                <td>Pay Period</td>
+
+
+            </tr>
+            {% endfor %}
+            <tr>
+        </tbody>
+    </table>
+    <h1>Step 1 - Input Venmo credentials</h1><br>
+    <div class="container">
+    <form class="form-signin" method="POST" action="/vlogin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.venusername) }}
+        {{ wtf.form_field(form.venpassword) }}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Link Venmo</button>
+    </form>
+    </div>
+
+{% endblock %}

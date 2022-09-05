@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Company editcompany.html
+{% endblock %}
+
+{% block content %}
+Signed in: {{ name }}<br>
+{{ message }}<br>
+{{ company.cname}}
+<br>
+<form action="/addcompany2" method="POST">
+    <div class="form-group">
+        <input autocomplete="off" class="form-control" placeholder={{company.cname}} name="cname" type="text" size= "30">
+        <input autocomplete="off" class="form-control" placeholder={{company.fein}} name="fein" type="number"><br>
+
+        <input autocomplete="off" class="form-control" placeholder={{company.cfirstname}} name="cfirstname" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.clastname}} name="clastname" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.cemail}} name="cemail" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.cipaddress}} name="cipaddress" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.ctype}} name="ctype" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.cdob}} name="cdob" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.cssn}} name="cssn" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.addr1}} name="addr1" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.addr2}} name="addr2" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.city}} name="city" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.state}} name="state" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.zcode}} name="zcode" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.cbustype}} name="cbustype" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.cbusclass}} name="cbusclass" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.phone}} name="phone" type="text" size= "13">
+        <input autocomplete="off" class="form-control" placeholder={{company.url}} name="url" type="text" size= "60">
+
+
+        <p>Banking Info.</p>
+        <input autocomplete="off" class="form-control" placeholder={{company.cbankrout}} name="cbankrout" type="text" size= "60">
+        <input autocomplete="off" class="form-control" placeholder={{company.cbankacct}} name="cbankacct" type="text" size= "13"><br>
+        <input autocomplete="off" class="form-control" placeholder={{company.cdwacctype}} name="cdwacctype" type="text" size= "13">
+        <input autocomplete="off" class="form-control" placeholder={{company.cbankacctnm}} name="cbankacctnm" type="text" size= "13"><br>
+
+        <p>Dwolla Info.</p>
+        dwollaid:<input autocomplete="off" class="form-control" placeholder={{company.cdwollaid}} name="cdwollaid" type="text" size= "60"><b>
+        dwollasid:    
+        <input autocomplete="off" class="form-control" placeholder={{company.cdwollasid}} name="cdwollasid" type="text" size= "13">
+        dwolla acct type:
+        <input autocomplete="off" class="form-control" placeholder={{company.cdwacctype}} name="cdwollacctype" type="text" size= "13"><br>
+
+        <p>Contact person details:</p><input autocomplete="off" class="form-control" placeholder={{company.contactname}} name="contact_name" type="text" size= "30">
+        <input autocomplete="off" class="form-control" placeholder={{company.cphone}} name="contact_phone" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.cemail}} name="contact_email" type="text" size="25">
+
+        <p>Controller details:</p><input autocomplete="off" class="form-control" placeholder={{company.cfirstname}} name="cfirstname" type="text" size= "30">
+        <input autocomplete="off" class="form-control" placeholder={{company.clastname}} name="clastname" type="text">
+        <input autocomplete="off" class="form-control" placeholder={{company.cctitle}} name="cctitle" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.ccdob}} name="ccdob" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.ccssn}} name="ccssn" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.ccaddr1}} name="ccaddr1" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.ccaddr2}} name="ccaddr2" type="text" size="25">
+        
+        <input autocomplete="off" class="form-control" placeholder={{company.cccity}} name="cccity" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.cczip}} name="cczip" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.ccstate}} name="ccstate" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.cccountry}} name="cccountry" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.ccverified}} name="ccverified" type="text" size="25">
+
+        <p>Beneficiary Owner details:</p><input autocomplete="off" class="form-control" placeholder={{company.bfirstname}} name="bfirstname" type="text" size= "30">
+        <input autocomplete="off" class="form-control" placeholder={{company.blastname}} name="blastname" type="text">
+    
+        <input autocomplete="off" class="form-control" placeholder={{company.bdob}} name="bdob" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.bssn}} name="bssn" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.baddr1}} name="baddr1" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.baddr2}} name="baddr2" type="text" size="25">
+
+        <input autocomplete="off" class="form-control" placeholder={{company.bcity}} name="bcity" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.bzip}} name="bzip" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.bstate}} name="bstate" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.bcountry}} name="bcountry" type="text" size="25">
+        <input autocomplete="off" class="form-control" placeholder={{company.bverified}} name="bverified" type="text" size="25">
+
+
+    </div>
+    <button class="btn btn-primary" type="submit">Update Company</button>
+</form>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+    Gross to Netpay netpay.html
+{% endblock %}
+
+{% block content %}
+Company ID: {{cid}}
+<table class="table table-striped">
+    <thead>
+        <tr><th class="table-primary" scope="col">Employee<th></th><th></th><th/th><th></th><th></th><th><th><th></th><th></th><th></th><th class="table-danger" scope="col">Company</th></tr>
+        <tr class="table-primary">
+            <th scope="col">EID</a></th>
+            <th scope="col">Name</th>
+            <th scope="col">Pay Method</th>
+            <th scope="col">Gross Pay</th>
+            <th scope="col">Fed Tax</th>
+            <th scope="col">FICA</th>
+            <th scope="col">Medicare</th>
+            <th scope="col">Netpay</th>
+            <th scope="col">Paycheck ID</th>
+            <th scope="col">Pay ACH</th>
+            <th class="table-danger" scope="col">FICA</th>
+            <th class="table-danger" scope="col">Medicare</th>
+            <th class="table-danger" scope="col">Total</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        
+        {% for employee, paycheck in employees %}
+
+        
+        <tr><td>{{ employee.eid }} </td>
+            <td>{{ (employee.fname) }} {{ (employee.lname) }}</td>
+                <td>{{ employee.paymethod }} </td>
+
+                <td>{{ "$%.2f"|format(paycheck.grosspay) }}</td>
+                <td>{{ "$%.2f"|format(paycheck.fedtax) }}</td>
+                <td>{{ "$%.2f"|format(paycheck.fica) }}</td>
+                <td>{{ "$%.2f"|format(paycheck.medicare) }}</td>
+                <td><strong>{{ "$%.2f"|format(paycheck.netpay) }}</strong></td>
+                <td>{{ paycheck.paycheckid }}</td>
+                
+                <!-- This is the link or POST for the Dwolla transfer. Either this can be a link or a Form with Post -->
+                <td><a class="btn btn-primary" href="/achpay?eid={{employee.eid}}&netpay={{paycheck.netpay}}&cid={{cid}}&paycheckid={{paycheck.paycheckid}}" role="button">Pay</a></td>
+                
+                
+                <td class="table-danger" scope="col">{{ "$%.2f"|format(paycheck.cfica) }}</td>
+                <td class="table-danger" scope="col">{{ "$%.2f"|format(paycheck.cmedicare) }}</td>
+                <td class="table-danger" scope="col"><strong>{{ "$%.2f"|format((paycheck.cmedicare + paycheck.cfica)) }}</strong></td>
+        </tr>
+
+        {% endfor %}  
+    </tbody>
+</table>
+
+{% endblock %}

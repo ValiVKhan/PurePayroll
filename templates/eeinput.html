@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h3> This is the start of my child template</h3>
+  <br>
+    <form action=eepreview method="POST">
+      <div class="row g-3">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="vacct" name=vacct>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Net Pay" name=npay>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Note" name=note>
+    </div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Preview</button>
+    </form>  
+  <h3> This is the end of my child template</h3>
+{% endblock %}

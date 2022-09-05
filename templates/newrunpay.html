@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+<!-- {% import "bootstrap/wtf.html" as wtf %} -->
+{% block title %}
+    Run Payroll newrunpay.html
+{% endblock %}
+
+{% block content %}
+<h1>You are about to run payroll on: {{ company.cname }} </h1><br>
+<h2> Step 1 - Enter Amount and Pay Period</h2>
+<h2 style="color:lightblue;"> Step 2 - Calculate deductions & Net Pay</h2>
+<h2 style="color:lightblue;"> Step 3 - Process Payments</h2>
+<strong>Signed in: </strong>{{ name }}<br>
+<strong>Company: </strong>{{ company.cname }}<br>
+
+<strong>ID: </strong> {{ company.cid }}
+{{ message }}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th><a href="addemp?company={{company.name}}">Employee</a></th>
+                <th>Gross amount here</th>
+            </tr>
+        </thead>
+        <form class="form-signin" method="POST" action="/grossnetpay">
+            {{ form.csrf_token }}
+            <!-- {{ form.hidden_tag() }} -->
+            {{ form.cid(value=company.cid) }}
+            {{ form.userid(value=company.cid)}}
+            {% for employee in employees %}
+
+        <tbody>
+            
+            <tr>
+                <td><a href="editemp?fname={{employee.fname}}&lname={{employee.lname}}&eid={{employee.eid}}&cid={{company.cid}}">{{employee.fname}} {{employee.lname}}</a></td>
+
+
+
+                <!-- <td>{{ wtf.form_field(form.grosspay) }}</td> -->
+
+                <td><input type="number" name={{employee.eid}} placeholder='$' value=0></td>
+                
+
+
+            </tr>
+            {% endfor %}
+            
+            <tr>
+            
+        </tbody>
+    </table>
+
+            {{ wtf.form_field(form.submit) }}
+            <!-- <button class="btn btn-primary btn-sm" type="submit"> Calculate Pay</button> -->
+        </form>
+   
+
+{% endblock %}
