@@ -30,3 +30,12 @@ The application will calculate the gross pay, deductions, and net pay for each e
 
 ### Contributing
 If you would like to contribute to the development of Pure Payroll, please fork the repository and submit a pull request.
+
+### Acknowledgments
+Pure Payroll uses the following libraries and resources:
+
+Flask: a lightweight web framework for building web applications in Python.
+Bootstrap: a popular CSS library for building responsive and mobile-first web applications.
+Dwolla: a payment platform for sending and receiving money.
+SQLite: a self-contained, file-based SQL database.
+Flask-SQLAlchemy: an extension for Flask that adds support for SQLAlchemy, a popular Object-Relational Mapping (ORM) library for Python.
